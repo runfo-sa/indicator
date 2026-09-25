@@ -1,0 +1,23 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #19232d;
+  background: #f4f6f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+
+main { display: grid; min-height: 100vh; place-items: center; padding: 2rem; }
+
+section { width: min(100%, 36rem); padding: 2rem; background: white; border: 1px solid #dce2e8; border-radius: 1rem; }
+
+.eyebrow { margin: 0 0 0.5rem; color: #526578; font-size: 0.875rem; }
+
+h1 { margin: 0; font-size: clamp(2rem, 8vw, 3rem); }
+
+.status { display: inline-block; margin: 1.25rem 0 0; padding: 0.3rem 0.65rem; border-radius: 999px; background: #edf2f7; font-size: 0.875rem; }
+
+.description { margin: 1rem 0 0; color: #526578; line-height: 1.6; }

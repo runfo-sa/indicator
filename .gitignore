@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+**/node_modules/
+.pnpm-store/
+**/dist/
+**/build/
+**/.gradle/
+**/local.properties
+*.tsbuildinfo
+api/bin/
+.codegraph/
