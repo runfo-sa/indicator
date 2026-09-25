@@ -34,13 +34,13 @@ The system SHALL restrict location data to authenticated operators and SHALL all
 
 ## Report persistence, latest locations, and retention
 
-The system SHALL persist every accepted report with its device identity, observed time, server receipt time, coordinates, and accuracy when available. It SHALL provide the latest accepted report for each enrolled device to authorized operators. Stored reports SHALL survive application and database container restarts and SHALL be deleted after one calendar month from server receipt.
+The system SHALL persist every accepted report with its device identity, observed time, server receipt time, coordinates, and accuracy when available. It SHALL provide the latest accepted report for each enrolled device to authorized operators. Stored reports SHALL survive application and database container restarts and SHALL be deleted after one calendar week from server receipt.
 
 ### Scenarios
 
 - **Latest locations:** When an authenticated operator requests latest locations, the system returns the most recently accepted report for each enrolled device, including its observed time and accuracy when available.
 - **Container restart:** When the application and database containers restart, previously accepted reports remain available.
-- **Retention limit:** When one calendar month has passed since the server received a report, the report is deleted and is no longer returned by location queries.
+- **Retention limit:** When one calendar week has passed since the server received a report, the report is deleted and is no longer returned by location queries.
 
 ## Interactive location map
 
@@ -80,6 +80,23 @@ The project SHALL define the desired PostgreSQL schema in the repository-root `d
 
 - **Contributor adds a database object:** When a feature adds a PostgreSQL database object, its definition is added as an individual `.sql` file under the matching directory in `database/`.
 - **Deployment reads desired schema:** When the deployment workflow prepares a schema comparison, it derives the desired PostgreSQL schema from the SQL definitions in `database/`.
+
+## Browser-only web map visual demo
+
+The React web app SHALL provide exactly two demo pages, Map and Settings, through a left navigation sidebar. The Settings page SHALL accept PNG, JPEG, WebP, or SVG map images and north, south, east, and west geographic bounds, rejecting unreadable images or invalid bounds without replacing the last valid configuration. The browser SHALL retain the demo image, bounds, and a positive whole-number update interval from 1 to 3600 seconds across reloads.
+
+The Map page SHALL fit the configured image with a margin, support bounded zooming and panning, and position mock device markers by linearly mapping longitude west-to-east and latitude north-to-south across the image bounds. Markers SHALL provide a name and latest update time on hover or keyboard focus. Selecting a marker SHALL open a dismissible device detail panel with name, MAC address, IP address, latest report time and coordinates, altitude when available, and location history. Out-of-bounds mock devices SHALL be identified without placing their marker outside the image.
+
+The browser-only demo SHALL start with the bundled `demo-map.png` floor plan, sample bounds, and eight in-bounds mock devices unless the user has saved a custom configuration. It SHALL label mock device data and refresh actions as simulated. Its configured interval SHALL refresh mock device reports while the map is open, and the device detail panel SHALL support refreshing one selected mock device without affecting the others. This demo requirement does not provide authentication, location capture, a device command, or server persistence.
+
+### Scenarios
+
+- **User configures a map:** When a user uploads a readable supported image and valid bounds, the map shows the image and places in-bounds mock devices using those bounds.
+- **User opens the demo:** When no custom map is saved, the map shows the bundled floor plan and eight in-bounds mock device markers.
+- **User reloads the demo:** When a user reloads after saving valid settings, the browser restores the image, bounds, and interval.
+- **User enters invalid settings:** When an image is unreadable, bounds are invalid, or the interval is outside 1 to 3600 whole seconds, the demo reports the error and retains the previous valid configuration.
+- **User explores device locations:** When a user zooms, pans, hovers or focuses a marker, or selects a marker, the map remains bounded and exposes the requested mock device information.
+- **Mock device locations update:** When the configured interval elapses or a user requests a device refresh, the demo updates the affected mock reports and visibly identifies these actions as simulated.
 
 ## Deployment database schema updates
 

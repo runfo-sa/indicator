@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#d7e1df" stroke-width="1"/>
+    </pattern>
+    <pattern id="parks" width="14" height="14" patternUnits="userSpaceOnUse">
+      <path d="M0 14 14 0" stroke="#cde7d4" stroke-width="3"/>
+    </pattern>
+  </defs>
+  <rect width="1400" height="900" fill="#edf2ef"/>
+  <rect width="1400" height="900" fill="url(#grid)"/>
+  <g fill="#fafbf8" stroke="#d5ddda" stroke-width="3">
+    <path d="M95 95h280v155H95zM415 95h290v155H415zM745 95h245v155H745zM1030 95h270v155h-270z"/>
+    <path d="M95 305h180v205H95zM315 305h390v205H315zM745 305h245v205H745zM1030 305h270v205h-270z"/>
+    <path d="M95 565h280v235H95zM415 565h290v235H415zM745 565h245v235H745zM1030 565h270v235h-270z"/>
+  </g>
+  <path d="M300 305h-25v205h25m420-205h25v205h-25m-420 55h-25v235h25m420-235h25v235h-25" fill="#d8ecdc" stroke="#aed5b8" stroke-width="2"/>
+  <path d="M975 305h-185v205h185z" fill="url(#parks)" stroke="#aed5b8" stroke-width="2"/>
+  <path d="M1090 0v900M0 275h1400M390 0v900M720 0v900M0 535h1400" stroke="#fff" stroke-width="28"/>
+  <path d="M1090 0v900M0 275h1400M390 0v900M720 0v900M0 535h1400" stroke="#d3dcd9" stroke-width="2" stroke-dasharray="8 9"/>
+  <g fill="#71827d" font-family="Arial,sans-serif" font-size="22" letter-spacing="3">
+    <text x="90" y="60">NORTH DISTRICT</text><text x="840" y="288">GREENWAY</text>
+    <text x="95" y="860">FIELD OPERATIONS · DEMO MAP</text>
+  </g>
+</svg>

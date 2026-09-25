@@ -10,3 +10,5 @@
 *.tsbuildinfo
 api/bin/
 .codegraph/
+.codex/
+.mcp.json

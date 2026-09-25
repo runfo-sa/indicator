@@ -7,7 +7,7 @@ There is no agreed behavior contract for collecting locations from multiple Andr
 ## What Changes
 
 - Specify Android 11+ screen-off location tracking, its permission requirements, and visible tracking status.
-- Specify authenticated device enrollment and location reporting, PostgreSQL-backed location storage, and one-month report retention.
+- Specify authenticated device enrollment and location reporting, PostgreSQL-backed location storage, and one-week report retention.
 - Specify an interactive map of each device's latest reported location and an admin page for configuring one global upload interval.
 - Specify root-level `database/` SQL files as the desired PostgreSQL schema and a GitHub deployment workflow that generates and applies an update script against the running database.
 - Publish the detailed system requirements in `docs/system-requirements.md`.
